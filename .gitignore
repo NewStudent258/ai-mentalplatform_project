@@ -1,0 +1,42 @@
+# ===== 构建产物 =====
+target/
+dist/
+*.class
+*.jar
+*.war
+
+# ===== 依赖目录 =====
+node_modules/
+.npm/
+
+# ===== IDE 配置（个人环境相关，不入库）=====
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# ===== 运行期产生的本地文件 =====
+# Redis 持久化与日志（属于本地运行环境，不应提交）
+dump.rdb
+memurai-log.txt
+*.rdb
+
+# 用户上传的文件（运行期数据）
+ai-spingboot/uploads/
+
+# 应用日志
+*.log
+logs/
+
+# ===== 本地覆盖配置 / 密钥 =====
+# 环境变量或本地覆盖配置一律不入库，避免密钥泄露
+.env
+.env.local
+application-local.yml
+application-local.properties
+.claude/
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini

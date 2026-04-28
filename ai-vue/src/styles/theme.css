@@ -1,0 +1,156 @@
+/**
+ * 设计系统 —— 雾蓝静谧系主题
+ *
+ * 为什么要有这个文件：
+ * 项目原先各页面直接写死色值，累计出现 40 余个零散颜色（青绿、橙、蓝、绿混用），
+ * 导致首页与 AI 咨询页视觉割裂、整体不像一个产品。这里统一定义设计 token，
+ * 所有页面只引用变量、不再写死色值，后续换肤只需改这一处。
+ *
+ * 配色依据（心理陪伴场景）：
+ * 心理健康产品的用户常处于焦虑、失眠、情绪低落状态。色彩心理学上，
+ * 暖色与高饱和色会提高生理唤起水平，反而加重不安；低饱和冷色能降低唤起、
+ * 传递平静与安全感。因此主色选用低饱和雾蓝，仅保留少量暖色用于警示。
+ */
+
+:root {
+  /* ===== 主色阶：雾蓝 ===== */
+  --mh-primary: #5c8db8;          /* 主色：按钮、链接、强调 */
+  --mh-primary-hover: #4a7193;    /* 悬停加深 */
+  --mh-primary-light: #8fb4d4;    /* 浅色：次级元素、边框高亮 */
+  --mh-primary-lighter: #c5dbec;  /* 更浅：分隔、标签底 */
+  --mh-primary-bg: #edf4fa;       /* 极浅：选中态背景、卡片底 */
+
+  /* ===== 辅助色：淡紫（用于情绪花园等柔和场景）===== */
+  --mh-accent: #c7a8d0;
+  --mh-accent-light: #e5d8ea;
+
+  /* ===== 语义色 ===== */
+  --mh-success: #6aa88f;          /* 正向情绪、通过 */
+  --mh-warning: #d9a05b;          /* 提醒、待审核 */
+  --mh-danger: #c97b7b;           /* 危机预警、驳回 */
+  --mh-info: #8fa8bd;
+
+  /* ===== 中性色 ===== */
+  --mh-bg: #f6f9fc;               /* 页面背景：月光白 */
+  --mh-surface: #ffffff;          /* 卡片表面 */
+  --mh-surface-alt: #fafcfe;      /* 次级表面 */
+  --mh-border: #e3ebf3;           /* 分隔线、边框 */
+  --mh-border-light: #eff4f8;
+
+  /* ===== 文字 ===== */
+  --mh-text: #2b3a4a;             /* 主要文字：藏青黑 */
+  --mh-text-secondary: #6b7c8f;   /* 次要文字 */
+  --mh-text-muted: #9aabbd;       /* 弱化文字、占位符 */
+  --mh-text-inverse: #ffffff;     /* 深色背景上的文字 */
+
+  /* ===== 圆角（统一柔和的视觉语言）===== */
+  --mh-radius-sm: 8px;
+  --mh-radius: 14px;
+  --mh-radius-lg: 20px;
+  --mh-radius-full: 999px;
+
+  /* ===== 阴影（统一为冷调、低透明度，避免脏灰感）===== */
+  --mh-shadow-sm: 0 2px 8px rgba(92, 141, 184, 0.06);
+  --mh-shadow: 0 4px 20px rgba(92, 141, 184, 0.08);
+  --mh-shadow-lg: 0 12px 40px rgba(92, 141, 184, 0.12);
+
+  /* ===== 渐变（用于头部、关键卡片）===== */
+  --mh-gradient: linear-gradient(135deg, #5c8db8 0%, #7ba8c9 100%);
+  --mh-gradient-soft: linear-gradient(135deg, #edf4fa 0%, #f6f9fc 100%);
+}
+
+/**
+ * 覆盖 Element Plus 主题变量。
+ * 注意：本文件必须在 element-plus/dist/index.css 之后导入，否则会被其默认值覆盖。
+ * Element Plus 的浅色阶由主色与白色按不同比例混合而成，此处按主色 #5c8db8 预先算好。
+ */
+:root {
+  --el-color-primary: #5c8db8;
+  --el-color-primary-light-3: #8dafcd;
+  --el-color-primary-light-5: #aec6dc;
+  --el-color-primary-light-7: #ceddea;
+  --el-color-primary-light-8: #dee8f1;
+  --el-color-primary-light-9: #eff4f8;
+  --el-color-primary-dark-2: #4a7193;
+
+  --el-color-success: #6aa88f;
+  --el-color-warning: #d9a05b;
+  --el-color-danger: #c97b7b;
+  --el-color-error: #c97b7b;
+  --el-color-info: #8fa8bd;
+
+  --el-text-color-primary: #2b3a4a;
+  --el-text-color-regular: #4a5b6d;
+  --el-text-color-secondary: #6b7c8f;
+  --el-text-color-placeholder: #9aabbd;
+  --el-text-color-disabled: #b9c5d1;
+
+  --el-border-color: #e3ebf3;
+  --el-border-color-light: #eff4f8;
+  --el-border-color-lighter: #f4f8fb;
+  --el-border-color-extra-light: #f8fbfd;
+
+  --el-fill-color-blank: #ffffff;
+  --el-fill-color-light: #f6f9fc;
+  --el-fill-color-lighter: #fafcfe;
+
+  --el-bg-color: #ffffff;
+  --el-bg-color-page: #f6f9fc;
+  --el-bg-color-overlay: #ffffff;
+
+  --el-border-radius-base: 10px;
+  --el-border-radius-small: 8px;
+
+  --el-font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ===== 全局基础样式 ===== */
+body {
+  background-color: var(--mh-bg);
+  color: var(--mh-text);
+  font-family: var(--el-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 统一滚动条为冷调细样式，避免默认灰色割裂页面质感 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mh-primary-lighter);
+  border-radius: var(--mh-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mh-primary-light);
+}
+
+/* 卡片圆角与阴影统一到设计系统 */
+.el-card {
+  border-radius: var(--mh-radius);
+  border-color: var(--mh-border);
+}
+
+.el-button {
+  border-radius: var(--mh-radius-sm);
+}
+
+.el-input__wrapper,
+.el-textarea__inner {
+  border-radius: var(--mh-radius-sm);
+}
+
+.el-dialog {
+  border-radius: var(--mh-radius-lg);
+}
+
+.el-tag {
+  border-radius: var(--mh-radius-sm);
+}

@@ -1,0 +1,102 @@
+spring:
+  datasource:
+    # 数据库连接：均可用环境变量覆盖。
+    # 默认值面向本地开发，生产环境请通过环境变量注入真实凭证，不要依赖此处的默认值
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/mental_health_assistant?useSSL=false&serverTimezone=UTC}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:1234}
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 3s
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        # 手动 ACK：只有向量化真正成功才确认消息，失败则走重试或死信，
+        # 避免「消息已确认但实际没处理成功」造成的索引缺失
+        acknowledge-mode: manual
+        # 每次只预取一条：向量化是重任务且需限流，预取过多会同时打满 Embedding 接口，
+        # 反而触发服务端限流（这正是引入 MQ 要解决的问题之一）
+        prefetch: 1
+
+  cache:
+    type: redis
+
+  ai:
+    openai:
+      chat:
+        options:
+          model: deepseek-chat
+          # 由 Spring AI 在内部闭环执行工具调用（执行 @Tool 方法并把结果回灌给模型）。
+          # 默认即为 true，此处显式声明以表明意图。
+          # 注意：不存在 tool-calling.enabled 这个配置项，写了会被静默忽略。
+          internal-tool-execution-enabled: true
+        completions-path: /v1/chat/completions
+      api-key: ${DEEPSEEK_API_KEY:}  # 从环境变量注入，勿将密钥提交进仓库
+      base-url: https://api.deepseek.com
+
+      # 向量化模型（Embedding）单独指向阿里云百炼国际站。
+      # DeepSeek 不提供 Embedding 接口，语义检索必须另找一家服务商。
+      # 注意是 dashscope-intl（新加坡区），中国区端点不认这把 Key。
+      embedding:
+        options:
+          model: text-embedding-v3
+          dimensions: 1024
+        embeddings-path: /v1/embeddings
+# 向量化服务独立配置（阿里云百炼国际站）。
+# 单独成段的原因：Spring AI 的 spring.ai.openai.* 只支持一个 api-key，
+# 而对话用 DeepSeek、向量化用百炼，两者密钥与端点都不同，
+# 因此在 Java 配置类里手工装配 EmbeddingModel，不走 starter 的自动配置。
+embedding:
+  api-key: ${DASHSCOPE_API_KEY:}
+  base-url: https://dashscope-intl.aliyuncs.com/compatible-mode
+
+  # 邮件通知（可选）。未配置 host 时，MailNotifier 会优雅降级为「仅发送站内信」，
+  # 不影响项目启动与主业务流程。
+  mail:
+    host: ${MAIL_HOST:}
+    port: ${MAIL_PORT:465}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+
+# 危机工单超时升级
+crisis:
+  timeout:
+    # 高优先级（风险等级3 / 测评风险项 / 主动转介）的认领时限
+    high-seconds: ${CRISIS_TIMEOUT_HIGH_SECONDS:900}
+    # 一般工单的认领时限
+    normal-seconds: ${CRISIS_TIMEOUT_NORMAL_SECONDS:3600}
+
+# 心理健康安全配置
+safety:
+  # 危机求助资源。部署时请改为本校/本地实际可用的渠道，
+  # 写错联系方式在危机场景下后果严重，因此做成可配置而非硬编码
+  crisis-resources: "学校心理咨询中心 · 全国心理援助热线 12356 · 紧急情况请拨 110/120"
+
+# 服务器配置
+server:
+  port: 1236
+
+# JWT配置
+jwt:
+  # 签名密钥：生产环境必须通过环境变量 JWT_SECRET 注入，默认值仅供本地开发。
+  # 使用默认值部署等同于公开签名密钥，任何人都能伪造 token
+  secret: ${JWT_SECRET:dev-only-secret-change-me-in-production}
+  expiration: 86400000  # 24小时（毫秒）
+  refresh-expiration: 604800000  # 7天（毫秒）
+  header: Authorization  # token头部名称
+  token-prefix: "Bearer "  # token前缀
+
