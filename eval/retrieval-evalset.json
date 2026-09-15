@@ -1,0 +1,158 @@
+{
+  "description": "心理健康知识库检索评测集。用于量化对比不同检索方案的效果。",
+  "usage": "python eval/evaluate_retrieval.py",
+  "typeExplain": {
+    "vocabulary_gap": "词汇鸿沟：用户说法与文章用词几乎无字面重合（向量检索的主场）",
+    "colloquial": "口语化：日常表达，不含专业术语",
+    "scenario": "场景化：描述具体情境而非主题",
+    "exact": "精确匹配：含文章中的术语/专有名词（关键词检索的主场）",
+    "vague": "模糊意图：表述笼统，可能对应多篇文章"
+  },
+  "articles": {
+    "1": "如何与焦虑情绪和平相处",
+    "2": "改善睡眠质量的五个小习惯",
+    "7": "心情压抑的时候该干什么",
+    "8": "愤怒来临时，先做这三件事",
+    "9": "情绪没有好坏之分：重新认识你的感受",
+    "10": "情绪突然崩溃时，如何让自己稳下来",
+    "11": "考试焦虑：把紧张变成专注力",
+    "12": "拖延不是懒：理解拖延背后的心理",
+    "13": "学会说不：拒绝也是一种自我保护",
+    "14": "当压力大到喘不过气：压力管理的三个层次",
+    "15": "睡前思绪停不下来怎么办",
+    "16": "作息紊乱后，如何把生物钟调回来",
+    "17": "午睡的正确打开方式",
+    "18": "宿舍相处：如何在集体生活中保留自己的空间",
+    "19": "社交焦虑：不是不想社交，是太在意别人的看法",
+    "20": "如何表达自己的需求而不伤害关系",
+    "21": "一个人的时候：学会与孤独相处",
+    "22": "总觉得我不够好：认识自我价值感",
+    "23": "面对失败：如何从挫折中恢复",
+    "24": "完美主义：当追求更好变成负担",
+    "25": "五分钟正念：随时随地可做的情绪调节"
+  },
+  "queries": [
+    {"id": 1, "query": "心里总是七上八下的，安定不下来", "expected": [1], "type": "vocabulary_gap"},
+    {"id": 2, "query": "老是莫名紧张怎么办", "expected": [1], "type": "colloquial"},
+    {"id": 3, "query": "每次要上台发言前都手心冒汗，特别慌", "expected": [1, 19], "type": "scenario"},
+    {"id": 4, "query": "4-7-8呼吸法怎么做", "expected": [1], "type": "exact"},
+    {"id": 5, "query": "我最近有点不对劲", "expected": [1, 7, 14], "type": "vague"},
+
+    {"id": 6, "query": "晚上翻来覆去睡不着", "expected": [2, 15], "type": "vocabulary_gap"},
+    {"id": 7, "query": "总是睡不好，白天没精神", "expected": [2], "type": "colloquial"},
+    {"id": 8, "query": "睡前玩手机到很晚，是不是影响睡眠", "expected": [2], "type": "scenario"},
+    {"id": 9, "query": "蓝光会抑制褪黑素吗", "expected": [2], "type": "exact"},
+    {"id": 10, "query": "想改善一下作息", "expected": [2, 16], "type": "vague"},
+
+    {"id": 11, "query": "心里堵得慌，做什么都提不起劲", "expected": [7], "type": "vocabulary_gap"},
+    {"id": 12, "query": "感觉整个人闷闷的", "expected": [7], "type": "colloquial"},
+    {"id": 13, "query": "最近什么都让我觉得烦躁压抑", "expected": [7, 14], "type": "scenario"},
+    {"id": 14, "query": "情绪一直好不起来", "expected": [7, 22], "type": "vague"},
+
+    {"id": 15, "query": "气得想摔东西", "expected": [8], "type": "vocabulary_gap"},
+    {"id": 16, "query": "火气特别大，控制不住", "expected": [8], "type": "colloquial"},
+    {"id": 17, "query": "和家里人吵架后特别后悔说重话", "expected": [8, 20], "type": "scenario"},
+    {"id": 18, "query": "生气的时候怎么快速冷静", "expected": [8], "type": "exact"},
+
+    {"id": 19, "query": "我是不是不该有这些负面情绪", "expected": [9], "type": "vocabulary_gap"},
+    {"id": 20, "query": "总觉得自己太情绪化了", "expected": [9], "type": "colloquial"},
+    {"id": 21, "query": "情绪有正面和负面的区分吗", "expected": [9], "type": "exact"},
+
+    {"id": 22, "query": "突然就绷不住了，眼泪止不住", "expected": [10], "type": "vocabulary_gap"},
+    {"id": 23, "query": "情绪一下子全涌上来了", "expected": [10], "type": "colloquial"},
+    {"id": 24, "query": "半夜突然哭得停不下来", "expected": [10], "type": "scenario"},
+    {"id": 25, "query": "5-4-3-2-1着陆法是什么", "expected": [10], "type": "exact"},
+
+    {"id": 26, "query": "一想到要考试就心慌", "expected": [11], "type": "vocabulary_gap"},
+    {"id": 27, "query": "考前总是坐立不安", "expected": [11], "type": "colloquial"},
+    {"id": 28, "query": "复习的时候完全看不进去书", "expected": [11, 12], "type": "scenario"},
+    {"id": 29, "query": "考试焦虑怎么缓解", "expected": [11], "type": "exact"},
+
+    {"id": 30, "query": "作业总是拖到最后一天", "expected": [12], "type": "vocabulary_gap"},
+    {"id": 31, "query": "明知道要做就是不想开始", "expected": [12], "type": "colloquial"},
+    {"id": 32, "query": "打开文档半天一个字没写", "expected": [12], "type": "scenario"},
+    {"id": 33, "query": "拖延症怎么治", "expected": [12], "type": "exact"},
+
+    {"id": 34, "query": "别人找我帮忙我总是不好意思拒绝", "expected": [13], "type": "vocabulary_gap"},
+    {"id": 35, "query": "不会拒绝别人怎么办", "expected": [13], "type": "colloquial"},
+    {"id": 36, "query": "室友总让我帮忙带饭，我其实很累", "expected": [13, 18], "type": "scenario"},
+    {"id": 37, "query": "怎么建立人际边界", "expected": [13, 20], "type": "exact"},
+
+    {"id": 38, "query": "压力大得快透不过气了", "expected": [14], "type": "vocabulary_gap"},
+    {"id": 39, "query": "感觉快扛不住了", "expected": [14], "type": "colloquial"},
+    {"id": 40, "query": "期末作业堆在一起压力好大", "expected": [14, 11], "type": "scenario"},
+    {"id": 41, "query": "压力管理的三个层次是什么", "expected": [14], "type": "exact"},
+
+    {"id": 42, "query": "一躺下脑子就开始转个不停", "expected": [15], "type": "vocabulary_gap"},
+    {"id": 43, "query": "越想睡越清醒", "expected": [15], "type": "colloquial"},
+    {"id": 44, "query": "每天躺床上要一两个小时才能睡着", "expected": [15, 2], "type": "scenario"},
+    {"id": 45, "query": "睡前脑子停不下来怎么办", "expected": [15], "type": "exact"},
+
+    {"id": 46, "query": "作息完全颠倒了", "expected": [16], "type": "vocabulary_gap"},
+    {"id": 47, "query": "白天睡不醒晚上睡不着", "expected": [16], "type": "colloquial"},
+    {"id": 48, "query": "假期熬夜习惯了，开学调不回来", "expected": [16], "type": "scenario"},
+    {"id": 49, "query": "怎么调整生物钟", "expected": [16], "type": "exact"},
+
+    {"id": 50, "query": "中午睡一会儿起来更累了", "expected": [17], "type": "vocabulary_gap"},
+    {"id": 51, "query": "午睡睡多久比较合适", "expected": [17], "type": "colloquial"},
+    {"id": 52, "query": "睡眠惯性是什么", "expected": [17], "type": "exact"},
+
+    {"id": 53, "query": "和室友处不来，不想回宿舍", "expected": [18], "type": "vocabulary_gap"},
+    {"id": 54, "query": "宿舍关系很僵怎么办", "expected": [18], "type": "colloquial"},
+    {"id": 55, "query": "室友半夜打游戏很吵，我睡不着", "expected": [18, 2], "type": "scenario"},
+    {"id": 56, "query": "宿舍矛盾怎么处理", "expected": [18], "type": "exact"},
+
+    {"id": 57, "query": "在人多的地方就浑身不自在", "expected": [19], "type": "vocabulary_gap"},
+    {"id": 58, "query": "总怕说错话被笑话", "expected": [19], "type": "colloquial"},
+    {"id": 59, "query": "社团聚会我全程不敢说话", "expected": [19], "type": "scenario"},
+    {"id": 60, "query": "聚光灯效应是什么", "expected": [19], "type": "exact"},
+
+    {"id": 61, "query": "有想法但是说不出口", "expected": [20], "type": "vocabulary_gap"},
+    {"id": 62, "query": "不知道怎么跟别人提要求", "expected": [20], "type": "colloquial"},
+    {"id": 63, "query": "队友总是甩锅给我，我不知道怎么开口", "expected": [20], "type": "scenario"},
+    {"id": 64, "query": "非暴力沟通怎么用", "expected": [20], "type": "exact"},
+
+    {"id": 65, "query": "一个人的时候特别难受", "expected": [21], "type": "vocabulary_gap"},
+    {"id": 66, "query": "感觉没人懂我", "expected": [21], "type": "colloquial"},
+    {"id": 67, "query": "周末一个人待着就特别低落", "expected": [21], "type": "scenario"},
+    {"id": 68, "query": "怎么和孤独相处", "expected": [21], "type": "exact"},
+
+    {"id": 69, "query": "总觉得自己比不上别人", "expected": [22], "type": "vocabulary_gap"},
+    {"id": 70, "query": "我是不是很没用", "expected": [22], "type": "colloquial"},
+    {"id": 71, "query": "看到同学拿奖学金，觉得自己很失败", "expected": [22, 23], "type": "scenario"},
+    {"id": 72, "query": "自我价值感低怎么办", "expected": [22], "type": "exact"},
+
+    {"id": 73, "query": "一次没做好我就觉得自己完蛋了", "expected": [23], "type": "vocabulary_gap"},
+    {"id": 74, "query": "失败之后一直缓不过来", "expected": [23], "type": "colloquial"},
+    {"id": 75, "query": "考研失败后不知道该怎么办", "expected": [23], "type": "scenario"},
+    {"id": 76, "query": "怎么从挫折中恢复", "expected": [23], "type": "exact"},
+
+    {"id": 77, "query": "什么都想做到最好，结果什么都做不完", "expected": [24], "type": "vocabulary_gap"},
+    {"id": 78, "query": "对自己要求太高了很累", "expected": [24], "type": "colloquial"},
+    {"id": 79, "query": "报告改了十几遍还是不敢交", "expected": [24, 12], "type": "scenario"},
+    {"id": 80, "query": "完美主义怎么克服", "expected": [24], "type": "exact"},
+
+    {"id": 81, "query": "想让自己静下来但静不下来", "expected": [25], "type": "vocabulary_gap"},
+    {"id": 82, "query": "有没有什么简单的方法放松一下", "expected": [25, 1], "type": "colloquial"},
+    {"id": 83, "query": "课间想休息一下但总是刷手机", "expected": [25], "type": "scenario"},
+    {"id": 84, "query": "五分钟正念练习怎么做", "expected": [25], "type": "exact"},
+
+    {"id": 85, "query": "心里跟揣了只兔子似的", "expected": [1], "type": "vocabulary_gap"},
+    {"id": 86, "query": "总是胡思乱想停不下来", "expected": [1, 15], "type": "colloquial"},
+    {"id": 87, "query": "倒时差后一直睡不好", "expected": [16], "type": "scenario"},
+    {"id": 88, "query": "晚上喝咖啡会睡不着吗", "expected": [2], "type": "colloquial"},
+
+    {"id": 89, "query": "最近情绪起伏特别大", "expected": [9, 10], "type": "vague"},
+    {"id": 90, "query": "被领导批评后一整天都缓不过来", "expected": [7, 8], "type": "scenario"},
+    {"id": 91, "query": "室友借钱不还，我不好意思提", "expected": [13, 20], "type": "scenario"},
+    {"id": 92, "query": "朋友越来越少", "expected": [21], "type": "colloquial"},
+    {"id": 93, "query": "同辈都找到好工作了，我很焦虑", "expected": [22, 14], "type": "scenario"},
+    {"id": 94, "query": "固定型思维和成长型思维", "expected": [23], "type": "exact"},
+    {"id": 95, "query": "同时做好几件事哪件都做不好", "expected": [14, 12], "type": "scenario"},
+    {"id": 96, "query": "每天都很累但又没做什么", "expected": [14, 7], "type": "colloquial"},
+    {"id": 97, "query": "478呼吸法具体步骤", "expected": [1], "type": "exact"},
+    {"id": 98, "query": "正念冥想入门", "expected": [25], "type": "exact"},
+    {"id": 99, "query": "睡前清单法", "expected": [15], "type": "exact"},
+    {"id": 100, "query": "刚上大学不太适应，什么都不顺", "expected": [18, 21, 14], "type": "scenario"}
+  ]
+}

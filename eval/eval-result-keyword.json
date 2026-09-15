@@ -1,0 +1,1832 @@
+{
+  "hit_rate": 0.75,
+  "hit1_rate": 0.51,
+  "mrr": 0.6006666666666667,
+  "top_k": 5,
+  "by_type": {
+    "vocabulary_gap": {
+      "hit_rate": 0.8181818181818182,
+      "hit1_rate": 0.5909090909090909,
+      "mrr": 0.6704545454545454,
+      "count": 22
+    },
+    "colloquial": {
+      "hit_rate": 0.68,
+      "hit1_rate": 0.4,
+      "mrr": 0.5093333333333333,
+      "count": 25
+    },
+    "scenario": {
+      "hit_rate": 0.48,
+      "hit1_rate": 0.24,
+      "mrr": 0.3433333333333334,
+      "count": 25
+    },
+    "exact": {
+      "hit_rate": 1.0,
+      "hit1_rate": 0.8333333333333334,
+      "mrr": 0.8923611111111112,
+      "count": 24
+    },
+    "vague": {
+      "hit_rate": 1.0,
+      "hit1_rate": 0.5,
+      "mrr": 0.6458333333333334,
+      "count": 4
+    }
+  },
+  "details": [
+    {
+      "id": 1,
+      "type": "vocabulary_gap",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "心里总是七上八下的，安定不下来",
+      "expected": [
+        1
+      ],
+      "got": [
+        15,
+        10,
+        20,
+        7,
+        8
+      ]
+    },
+    {
+      "id": 2,
+      "type": "colloquial",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "老是莫名紧张怎么办",
+      "expected": [
+        1
+      ],
+      "got": [
+        11,
+        15,
+        20,
+        23,
+        8
+      ]
+    },
+    {
+      "id": 3,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "每次要上台发言前都手心冒汗，特别慌",
+      "expected": [
+        1,
+        19
+      ],
+      "got": [
+        25,
+        14,
+        21
+      ]
+    },
+    {
+      "id": 4,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "4-7-8呼吸法怎么做",
+      "expected": [
+        1
+      ],
+      "got": [
+        1,
+        15,
+        8,
+        20,
+        23
+      ]
+    },
+    {
+      "id": 5,
+      "type": "vague",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.3333333333333333,
+      "query": "我最近有点不对劲",
+      "expected": [
+        1,
+        7,
+        14
+      ],
+      "got": [
+        9,
+        11,
+        14,
+        18,
+        20
+      ]
+    },
+    {
+      "id": 6,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "晚上翻来覆去睡不着",
+      "expected": [
+        2,
+        15
+      ],
+      "got": [
+        17,
+        15,
+        14,
+        16,
+        18
+      ]
+    },
+    {
+      "id": 7,
+      "type": "colloquial",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "总是睡不好，白天没精神",
+      "expected": [
+        2
+      ],
+      "got": [
+        17,
+        20,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "id": 8,
+      "type": "scenario",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "睡前玩手机到很晚，是不是影响睡眠",
+      "expected": [
+        2
+      ],
+      "got": [
+        19,
+        2,
+        15,
+        16,
+        12
+      ]
+    },
+    {
+      "id": 9,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "蓝光会抑制褪黑素吗",
+      "expected": [
+        2
+      ],
+      "got": [
+        2,
+        16
+      ]
+    },
+    {
+      "id": 10,
+      "type": "vague",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "想改善一下作息",
+      "expected": [
+        2,
+        16
+      ],
+      "got": [
+        16,
+        2,
+        7,
+        13,
+        15
+      ]
+    },
+    {
+      "id": 11,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "心里堵得慌，做什么都提不起劲",
+      "expected": [
+        7
+      ],
+      "got": [
+        7,
+        25,
+        8,
+        11,
+        22
+      ]
+    },
+    {
+      "id": 12,
+      "type": "colloquial",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "感觉整个人闷闷的",
+      "expected": [
+        7
+      ],
+      "got": [
+        21,
+        22,
+        23,
+        25,
+        13
+      ]
+    },
+    {
+      "id": 13,
+      "type": "scenario",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "最近什么都让我觉得烦躁压抑",
+      "expected": [
+        7,
+        14
+      ],
+      "got": [
+        7,
+        22,
+        9,
+        14,
+        20
+      ]
+    },
+    {
+      "id": 14,
+      "type": "vague",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.25,
+      "query": "情绪一直好不起来",
+      "expected": [
+        7,
+        22
+      ],
+      "got": [
+        9,
+        10,
+        1,
+        7,
+        25
+      ]
+    },
+    {
+      "id": 15,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "气得想摔东西",
+      "expected": [
+        8
+      ],
+      "got": [
+        8,
+        9,
+        10,
+        18
+      ]
+    },
+    {
+      "id": 16,
+      "type": "colloquial",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "火气特别大，控制不住",
+      "expected": [
+        8
+      ],
+      "got": [
+        14,
+        25,
+        16
+      ]
+    },
+    {
+      "id": 17,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "和家里人吵架后特别后悔说重话",
+      "expected": [
+        8,
+        20
+      ],
+      "got": [
+        25,
+        14
+      ]
+    },
+    {
+      "id": 18,
+      "type": "exact",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.3333333333333333,
+      "query": "生气的时候怎么快速冷静",
+      "expected": [
+        8
+      ],
+      "got": [
+        7,
+        21,
+        8,
+        15,
+        9
+      ]
+    },
+    {
+      "id": 19,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "我是不是不该有这些负面情绪",
+      "expected": [
+        9
+      ],
+      "got": [
+        9,
+        7,
+        10,
+        1,
+        12
+      ]
+    },
+    {
+      "id": 20,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.2,
+      "query": "总觉得自己太情绪化了",
+      "expected": [
+        9
+      ],
+      "got": [
+        10,
+        22,
+        25,
+        7,
+        9
+      ]
+    },
+    {
+      "id": 21,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "情绪有正面和负面的区分吗",
+      "expected": [
+        9
+      ],
+      "got": [
+        9,
+        10,
+        7,
+        1,
+        25
+      ]
+    },
+    {
+      "id": 22,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "突然就绷不住了，眼泪止不住",
+      "expected": [
+        10
+      ],
+      "got": [
+        10,
+        14,
+        8,
+        11,
+        20
+      ]
+    },
+    {
+      "id": 23,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "情绪一下子全涌上来了",
+      "expected": [
+        10
+      ],
+      "got": [
+        9,
+        10,
+        1,
+        25,
+        7
+      ]
+    },
+    {
+      "id": 24,
+      "type": "scenario",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "半夜突然哭得停不下来",
+      "expected": [
+        10
+      ],
+      "got": [
+        15,
+        10,
+        1,
+        7,
+        8
+      ]
+    },
+    {
+      "id": 25,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "5-4-3-2-1着陆法是什么",
+      "expected": [
+        10
+      ],
+      "got": [
+        10,
+        7,
+        25,
+        1,
+        13
+      ]
+    },
+    {
+      "id": 26,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "一想到要考试就心慌",
+      "expected": [
+        11
+      ],
+      "got": [
+        11,
+        13,
+        14,
+        22
+      ]
+    },
+    {
+      "id": 27,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "考前总是坐立不安",
+      "expected": [
+        11
+      ],
+      "got": [
+        20,
+        11,
+        17,
+        24
+      ]
+    },
+    {
+      "id": 28,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "复习的时候完全看不进去书",
+      "expected": [
+        11,
+        12
+      ],
+      "got": [
+        7,
+        21,
+        25,
+        24,
+        9
+      ]
+    },
+    {
+      "id": 29,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "考试焦虑怎么缓解",
+      "expected": [
+        11
+      ],
+      "got": [
+        11,
+        1,
+        19,
+        15,
+        12
+      ]
+    },
+    {
+      "id": 30,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "作业总是拖到最后一天",
+      "expected": [
+        12
+      ],
+      "got": [
+        20,
+        12,
+        16,
+        17,
+        24
+      ]
+    },
+    {
+      "id": 31,
+      "type": "colloquial",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "明知道要做就是不想开始",
+      "expected": [
+        12
+      ],
+      "got": [
+        19,
+        25,
+        2,
+        21,
+        7
+      ]
+    },
+    {
+      "id": 32,
+      "type": "scenario",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.3333333333333333,
+      "query": "打开文档半天一个字没写",
+      "expected": [
+        12
+      ],
+      "got": [
+        17,
+        21,
+        12,
+        15,
+        20
+      ]
+    },
+    {
+      "id": 33,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "拖延症怎么治",
+      "expected": [
+        12
+      ],
+      "got": [
+        12,
+        15,
+        20,
+        23,
+        24
+      ]
+    },
+    {
+      "id": 34,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "别人找我帮忙我总是不好意思拒绝",
+      "expected": [
+        13
+      ],
+      "got": [
+        13,
+        19,
+        20,
+        14,
+        22
+      ]
+    },
+    {
+      "id": 35,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "不会拒绝别人怎么办",
+      "expected": [
+        13
+      ],
+      "got": [
+        13,
+        15,
+        19,
+        20,
+        7
+      ]
+    },
+    {
+      "id": 36,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "室友总让我帮忙带饭，我其实很累",
+      "expected": [
+        13,
+        18
+      ],
+      "got": [
+        8,
+        9,
+        19,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 37,
+      "type": "exact",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "怎么建立人际边界",
+      "expected": [
+        13,
+        20
+      ],
+      "got": [
+        18,
+        20,
+        13,
+        15,
+        19
+      ]
+    },
+    {
+      "id": 38,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "压力大得快透不过气了",
+      "expected": [
+        14
+      ],
+      "got": [
+        14,
+        11,
+        12,
+        1,
+        7
+      ]
+    },
+    {
+      "id": 39,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "感觉快扛不住了",
+      "expected": [
+        14
+      ],
+      "got": [
+        14,
+        22,
+        25
+      ]
+    },
+    {
+      "id": 40,
+      "type": "scenario",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "期末作业堆在一起压力好大",
+      "expected": [
+        11,
+        14
+      ],
+      "got": [
+        14,
+        11,
+        12,
+        1,
+        7
+      ]
+    },
+    {
+      "id": 41,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "压力管理的三个层次是什么",
+      "expected": [
+        14
+      ],
+      "got": [
+        14,
+        12,
+        8,
+        1,
+        7
+      ]
+    },
+    {
+      "id": 42,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "一躺下脑子就开始转个不停",
+      "expected": [
+        15
+      ],
+      "got": [
+        15,
+        2,
+        11,
+        12,
+        19
+      ]
+    },
+    {
+      "id": 43,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "越想睡越清醒",
+      "expected": [
+        15
+      ],
+      "got": [
+        15
+      ]
+    },
+    {
+      "id": 44,
+      "type": "scenario",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "每天躺床上要一两个小时才能睡着",
+      "expected": [
+        2,
+        15
+      ],
+      "got": [
+        17,
+        2,
+        15,
+        16,
+        18
+      ]
+    },
+    {
+      "id": 45,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "睡前脑子停不下来怎么办",
+      "expected": [
+        15
+      ],
+      "got": [
+        15,
+        10,
+        8,
+        20,
+        23
+      ]
+    },
+    {
+      "id": 46,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "作息完全颠倒了",
+      "expected": [
+        16
+      ],
+      "got": [
+        16,
+        2,
+        7,
+        11,
+        15
+      ]
+    },
+    {
+      "id": 47,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.3333333333333333,
+      "query": "白天睡不醒晚上睡不着",
+      "expected": [
+        16
+      ],
+      "got": [
+        17,
+        15,
+        16,
+        14,
+        18
+      ]
+    },
+    {
+      "id": 48,
+      "type": "scenario",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "假期熬夜习惯了，开学调不回来",
+      "expected": [
+        16
+      ],
+      "got": [
+        2,
+        16,
+        18,
+        7,
+        8
+      ]
+    },
+    {
+      "id": 49,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "怎么调整生物钟",
+      "expected": [
+        16
+      ],
+      "got": [
+        16,
+        15,
+        23,
+        18,
+        20
+      ]
+    },
+    {
+      "id": 50,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "中午睡一会儿起来更累了",
+      "expected": [
+        17
+      ],
+      "got": [
+        17,
+        15,
+        16,
+        7,
+        14
+      ]
+    },
+    {
+      "id": 51,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "午睡睡多久比较合适",
+      "expected": [
+        17
+      ],
+      "got": [
+        17,
+        25,
+        11,
+        16,
+        18
+      ]
+    },
+    {
+      "id": 52,
+      "type": "exact",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.25,
+      "query": "睡眠惯性是什么",
+      "expected": [
+        17
+      ],
+      "got": [
+        2,
+        7,
+        16,
+        17,
+        1
+      ]
+    },
+    {
+      "id": 53,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "和室友处不来，不想回宿舍",
+      "expected": [
+        18
+      ],
+      "got": [
+        18,
+        7,
+        19,
+        25,
+        8
+      ]
+    },
+    {
+      "id": 54,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "宿舍关系很僵怎么办",
+      "expected": [
+        18
+      ],
+      "got": [
+        18,
+        20,
+        15,
+        13,
+        8
+      ]
+    },
+    {
+      "id": 55,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "室友半夜打游戏很吵，我睡不着",
+      "expected": [
+        2,
+        18
+      ],
+      "got": [
+        17,
+        15,
+        8,
+        11,
+        14
+      ]
+    },
+    {
+      "id": 56,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "宿舍矛盾怎么处理",
+      "expected": [
+        18
+      ],
+      "got": [
+        18,
+        15,
+        10,
+        20,
+        23
+      ]
+    },
+    {
+      "id": 57,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.25,
+      "query": "在人多的地方就浑身不自在",
+      "expected": [
+        19
+      ],
+      "got": [
+        1,
+        8,
+        15,
+        19,
+        21
+      ]
+    },
+    {
+      "id": 58,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "总怕说错话被笑话",
+      "expected": [
+        19
+      ],
+      "got": [
+        19
+      ]
+    },
+    {
+      "id": 59,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "社团聚会我全程不敢说话",
+      "expected": [
+        19
+      ],
+      "got": [
+        7,
+        18,
+        21,
+        22,
+        24
+      ]
+    },
+    {
+      "id": 60,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "聚光灯效应是什么",
+      "expected": [
+        19
+      ],
+      "got": [
+        19,
+        7,
+        10,
+        13,
+        1
+      ]
+    },
+    {
+      "id": 61,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.25,
+      "query": "有想法但是说不出口",
+      "expected": [
+        20
+      ],
+      "got": [
+        13,
+        10,
+        1,
+        20,
+        21
+      ]
+    },
+    {
+      "id": 62,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.2,
+      "query": "不知道怎么跟别人提要求",
+      "expected": [
+        20
+      ],
+      "got": [
+        19,
+        15,
+        24,
+        12,
+        20
+      ]
+    },
+    {
+      "id": 63,
+      "type": "scenario",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "队友总是甩锅给我，我不知道怎么开口",
+      "expected": [
+        20
+      ],
+      "got": [
+        20,
+        22,
+        15,
+        19,
+        23
+      ]
+    },
+    {
+      "id": 64,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "非暴力沟通怎么用",
+      "expected": [
+        20
+      ],
+      "got": [
+        20,
+        15,
+        8,
+        23,
+        12
+      ]
+    },
+    {
+      "id": 65,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "一个人的时候特别难受",
+      "expected": [
+        21
+      ],
+      "got": [
+        21,
+        7,
+        9,
+        19,
+        25
+      ]
+    },
+    {
+      "id": 66,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "感觉没人懂我",
+      "expected": [
+        21
+      ],
+      "got": [
+        21,
+        22,
+        25
+      ]
+    },
+    {
+      "id": 67,
+      "type": "scenario",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "周末一个人待着就特别低落",
+      "expected": [
+        21
+      ],
+      "got": [
+        21,
+        15,
+        23,
+        22,
+        25
+      ]
+    },
+    {
+      "id": 68,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "怎么和孤独相处",
+      "expected": [
+        21
+      ],
+      "got": [
+        21,
+        1,
+        18,
+        15,
+        20
+      ]
+    },
+    {
+      "id": 69,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "总觉得自己比不上别人",
+      "expected": [
+        22
+      ],
+      "got": [
+        22,
+        19,
+        13,
+        20,
+        10
+      ]
+    },
+    {
+      "id": 70,
+      "type": "colloquial",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "我是不是很没用",
+      "expected": [
+        22
+      ],
+      "got": [
+        12,
+        19,
+        8,
+        16,
+        11
+      ]
+    },
+    {
+      "id": 71,
+      "type": "scenario",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "看到同学拿奖学金，觉得自己很失败",
+      "expected": [
+        22,
+        23
+      ],
+      "got": [
+        22,
+        23,
+        20,
+        21,
+        10
+      ]
+    },
+    {
+      "id": 72,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "自我价值感低怎么办",
+      "expected": [
+        22
+      ],
+      "got": [
+        22,
+        15,
+        12,
+        13,
+        21
+      ]
+    },
+    {
+      "id": 73,
+      "type": "vocabulary_gap",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.25,
+      "query": "一次没做好我就觉得自己完蛋了",
+      "expected": [
+        23
+      ],
+      "got": [
+        22,
+        12,
+        20,
+        23,
+        25
+      ]
+    },
+    {
+      "id": 74,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "失败之后一直缓不过来",
+      "expected": [
+        23
+      ],
+      "got": [
+        23,
+        14,
+        21,
+        8,
+        9
+      ]
+    },
+    {
+      "id": 75,
+      "type": "scenario",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "考研失败后不知道该怎么办",
+      "expected": [
+        23
+      ],
+      "got": [
+        23,
+        15,
+        21,
+        12,
+        20
+      ]
+    },
+    {
+      "id": 76,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "怎么从挫折中恢复",
+      "expected": [
+        23
+      ],
+      "got": [
+        23,
+        15,
+        20,
+        8,
+        12
+      ]
+    },
+    {
+      "id": 77,
+      "type": "vocabulary_gap",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "什么都想做到最好，结果什么都做不完",
+      "expected": [
+        24
+      ],
+      "got": [
+        22,
+        7,
+        25,
+        17,
+        23
+      ]
+    },
+    {
+      "id": 78,
+      "type": "colloquial",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "对自己要求太高了很累",
+      "expected": [
+        24
+      ],
+      "got": [
+        22,
+        10,
+        12,
+        18,
+        19
+      ]
+    },
+    {
+      "id": 79,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "报告改了十几遍还是不敢交",
+      "expected": [
+        12,
+        24
+      ],
+      "got": [
+        19,
+        20,
+        10,
+        13,
+        16
+      ]
+    },
+    {
+      "id": 80,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "完美主义怎么克服",
+      "expected": [
+        24
+      ],
+      "got": [
+        24,
+        15,
+        20,
+        23,
+        7
+      ]
+    },
+    {
+      "id": 81,
+      "type": "vocabulary_gap",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "想让自己静下来但静不下来",
+      "expected": [
+        25
+      ],
+      "got": [
+        10,
+        15,
+        7,
+        18,
+        20
+      ]
+    },
+    {
+      "id": 82,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "有没有什么简单的方法放松一下",
+      "expected": [
+        1,
+        25
+      ],
+      "got": [
+        7,
+        1,
+        8,
+        14,
+        9
+      ]
+    },
+    {
+      "id": 83,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "课间想休息一下但总是刷手机",
+      "expected": [
+        25
+      ],
+      "got": [
+        17,
+        20,
+        2,
+        7,
+        10
+      ]
+    },
+    {
+      "id": 84,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "五分钟正念练习怎么做",
+      "expected": [
+        25
+      ],
+      "got": [
+        25,
+        1,
+        15,
+        12,
+        17
+      ]
+    },
+    {
+      "id": 85,
+      "type": "vocabulary_gap",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "心里跟揣了只兔子似的",
+      "expected": [
+        1
+      ],
+      "got": [
+        7,
+        21,
+        25
+      ]
+    },
+    {
+      "id": 86,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "总是胡思乱想停不下来",
+      "expected": [
+        1,
+        15
+      ],
+      "got": [
+        15,
+        10,
+        20,
+        1,
+        7
+      ]
+    },
+    {
+      "id": 87,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "倒时差后一直睡不好",
+      "expected": [
+        16
+      ],
+      "got": [
+        17,
+        14,
+        12,
+        13,
+        15
+      ]
+    },
+    {
+      "id": 88,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.5,
+      "query": "晚上喝咖啡会睡不着吗",
+      "expected": [
+        2
+      ],
+      "got": [
+        17,
+        2,
+        15,
+        14,
+        16
+      ]
+    },
+    {
+      "id": 89,
+      "type": "vague",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "最近情绪起伏特别大",
+      "expected": [
+        9,
+        10
+      ],
+      "got": [
+        9,
+        10,
+        25,
+        1,
+        7
+      ]
+    },
+    {
+      "id": 90,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "被领导批评后一整天都缓不过来",
+      "expected": [
+        7,
+        8
+      ],
+      "got": [
+        14,
+        13,
+        17
+      ]
+    },
+    {
+      "id": 91,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "室友借钱不还，我不好意思提",
+      "expected": [
+        13,
+        20
+      ],
+      "got": [
+        22,
+        23,
+        8,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 92,
+      "type": "colloquial",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "朋友越来越少",
+      "expected": [
+        21
+      ],
+      "got": [
+        1,
+        18,
+        22
+      ]
+    },
+    {
+      "id": 93,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "同辈都找到好工作了，我很焦虑",
+      "expected": [
+        14,
+        22
+      ],
+      "got": [
+        1,
+        11,
+        19,
+        8,
+        12
+      ]
+    },
+    {
+      "id": 94,
+      "type": "exact",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.3333333333333333,
+      "query": "固定型思维和成长型思维",
+      "expected": [
+        23
+      ],
+      "got": [
+        1,
+        22,
+        23,
+        2,
+        16
+      ]
+    },
+    {
+      "id": 95,
+      "type": "scenario",
+      "hit": true,
+      "hit1": false,
+      "rr": 0.25,
+      "query": "同时做好几件事哪件都做不好",
+      "expected": [
+        12,
+        14
+      ],
+      "got": [
+        23,
+        22,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 96,
+      "type": "colloquial",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "每天都很累但又没做什么",
+      "expected": [
+        7,
+        14
+      ],
+      "got": [
+        7,
+        23,
+        12,
+        16,
+        25
+      ]
+    },
+    {
+      "id": 97,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "478呼吸法具体步骤",
+      "expected": [
+        1
+      ],
+      "got": [
+        1,
+        11,
+        20,
+        7,
+        8
+      ]
+    },
+    {
+      "id": 98,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "正念冥想入门",
+      "expected": [
+        25
+      ],
+      "got": [
+        25,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 99,
+      "type": "exact",
+      "hit": true,
+      "hit1": true,
+      "rr": 1.0,
+      "query": "睡前清单法",
+      "expected": [
+        15
+      ],
+      "got": [
+        15,
+        2,
+        14,
+        16
+      ]
+    },
+    {
+      "id": 100,
+      "type": "scenario",
+      "hit": false,
+      "hit1": false,
+      "rr": 0.0,
+      "query": "刚上大学不太适应，什么都不顺",
+      "expected": [
+        14,
+        18,
+        21
+      ],
+      "got": [
+        7,
+        25,
+        1,
+        22,
+        23
+      ]
+    }
+  ]
+}
