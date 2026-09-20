@@ -93,6 +93,27 @@ public class KnowledgeVectorStore {
     }
 
     /**
+     * 按文章ID读取元数据（不计算相似度）。
+     * <p>
+     * 供混合检索的关键词路使用：关键词打分只产出「文章ID + 分数」，
+     * 但最终要返回统一的 ScoredArticle 结构给上层，因此需要回查元数据。
+     */
+    public ScoredArticle loadMeta(Long articleId) {
+        if (articleId == null) {
+            return null;
+        }
+        String metaJson = redisTemplate.opsForValue().get(META_KEY_PREFIX + articleId);
+        if (metaJson == null) {
+            return null;
+        }
+        ScoredArticle item = new ScoredArticle();
+        item.id = String.valueOf(articleId);
+        item.meta = JSONUtil.parseObj(metaJson);
+        item.score = 0;
+        return item;
+    }
+
+    /**
      * 判断某篇文章是否已建立索引。
      * <p>
      * 供启动时的对账使用：数据库里「已发布且可引用」的文章，
