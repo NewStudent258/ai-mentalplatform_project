@@ -43,3 +43,11 @@ application-local.properties
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ===== 私人材料（仅本地保留，严禁入库）=====
+# 求职/面试准备资料，含个人信息，永不提交
+简历.pdf
+_resume_text.txt
+面试作战手册.md
+并发压测专题.md
+项目介绍完整版.md
