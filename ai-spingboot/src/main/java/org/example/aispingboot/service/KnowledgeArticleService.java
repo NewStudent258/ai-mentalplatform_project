@@ -214,6 +214,23 @@ public class KnowledgeArticleService {
         indexMessageProducer.sendRemove(id);
     }
 
+    /**
+     * 取出所有「已发布且可被 AI 引用」的文章，供关键词检索打分使用。
+     * <p>
+     * 与 {@link #searchPublished} 的区别：后者用 SQL LIKE 做初步过滤，
+     * 本方法返回全量候选，由上层在内存里做相关性打分与排序——
+     * 因为 LIKE 只能判断「包含与否」，给不出排序依据。
+     * 几十篇的规模下全量取出完全可接受。
+     */
+    public List<KnowledgeArticle> listPublishedForSearch() {
+        LambdaQueryWrapper<KnowledgeArticle> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(KnowledgeArticle::getStatus, ArticleStatus.PUBLISHED.getCode())
+                .eq(KnowledgeArticle::getCitable, 1);
+        List<KnowledgeArticle> articles = knowledgeArticleMapper.selectList(wrapper);
+        fillCategoryName(articles);
+        return articles;
+    }
+
     // ==================== 用户投稿 ====================
 
     /** 作者类型：系统/管理员创建 */
